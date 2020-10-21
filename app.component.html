@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <script>
+      function mostrar(frm,num) {
+        if(num==0) {
+          frm.dni.style.visibility='visible';
+          frm.rut.style.visibility='hidden';
+        }
+        else {
+          frm.dni.style.visibility='hidden';
+          frm.rut.style.visibility='visible';
+        }
+      }
+    </script>
+
+    <script>
+      function logSubmit(event) {
+        txt = document.getElementById("datos enviados");
+        console.log(txt.innerHTML);
+        event.preventDefault();
+      }
+      const form = document.getElementById('form');
+      const log = document.getElementById('log');
+      form.addEventListener('submit', logSubmit);
+    </script>
+
+  </head> 
+  <body>
+    
+    <div class="container-fluid">
+
+      <title>Quiz 1 Ingeniería Web</title>
+      <meta charset="utf-8"/>
+      <meta name="keywords" content="Formulario, Formulario Ejemplo, Ingreso de datos"/>
+      <meta name="description" content="Ejemplo de creación de un formulario básico con propósitos académicos"/>
+      <meta name="author" content="Andrés Peña Jara" />
+
+      <div class="col-xs-12 col-md-8">
+
+
+        <p>Nombre: <input type="text" name="nombre" size="40"></p>
+        <p>Correo Electrónico: <input type="email" name="correo" ></p>
+      </div>
+      <div class="col-xs-6 col-md-4">
+        <form>  
+          <p>Tipo de documento:
+            <input type="radio" name="doc" onclick="mostrar(this.form,0)" required/> DNI     
+            <input type="radio" name="doc" onclick="mostrar(this.form,1)" required/> RUT 
+            <input type="text" name="dni" size="40" />
+            <input type="number" name="rut" size="40"/>
+          </p>
+        </form>
+        <form id="form">
+          <p>
+            <button type="submit">submit</button>
+          </p>
+        </form>
+        <p id="log"></p>
+      </div>
+    </div>
+
+  </body>
+
+</html>
+<router-outlet></router-outlet>
